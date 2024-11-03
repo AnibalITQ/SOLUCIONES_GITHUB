@@ -5,3 +5,4 @@ textEquipo2.addEventListener("dblclick", () => {
 });
 
 //trying to force wf
+//second force
