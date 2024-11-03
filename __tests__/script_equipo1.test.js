@@ -7,7 +7,7 @@ document.body.innerHTML = `
     <div id="charCount"></div>
 `;
 
-const { inputEquipo1, charCount } = require("./script_equipo1");
+const { inputEquipo1, charCount } = require("../script_equipo1");
 
 test("Character count updates on input", () => {
     inputEquipo1.value = "Hola";
