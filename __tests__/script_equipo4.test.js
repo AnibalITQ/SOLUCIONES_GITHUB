@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <div id="contentEquipo4" style="display: none;"></div>
     <button id="toggleButton"></button>

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <div id="progressBar" style="width: 0%;"></div>
 `;

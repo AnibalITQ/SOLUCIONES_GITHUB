@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <div id="textEquipo2">texto original</div>
 `;

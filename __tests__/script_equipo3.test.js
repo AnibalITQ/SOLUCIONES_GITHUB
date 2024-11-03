@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <input id="inputEquipo1" />
     <div id="charCount"></div>
