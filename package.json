@@ -5,7 +5,8 @@
   "main": "script_eqipo_3.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "echo 'No build necessary'"
   },
   "keywords": [],
   "author": "",
