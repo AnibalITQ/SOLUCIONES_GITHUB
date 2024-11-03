@@ -3,7 +3,8 @@ name: CI/CD Workflow
 on:
   pull_request:
     branches: [ develop ]
-
+  push:
+    branches: [ develop ]
 jobs:
   # Job para Equipo 1
   equipo1:
@@ -123,7 +124,7 @@ jobs:
 
       - name: Install jest-environment-jsdom
         run: npm install --save-dev jest-environment-jsdom
-        
+
       - name: Run ESLint
         run: npm run lint
 
