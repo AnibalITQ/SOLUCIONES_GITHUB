@@ -1,22 +1,18 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
-    <img id="carouselImage" src="image1.jpg" />
+    <div id="progressBar" style="width: 0%;"></div>
 `;
 
-const { changeImage, carouselImages, carouselImage } = require("./script_equipo5");
+const { progressBar } = require("../script_equipo5");
 
-test("Changes carousel image every 3 seconds", () => {
-    jest.useFakeTimers();
-    
-    changeImage();
-    expect(carouselImage.src).toContain("image2.jpg");
+test("Progress bar width changes on scroll", () => {
+    document.documentElement.scrollTop = 50;
+    document.documentElement.scrollHeight = 500;
+    document.documentElement.clientHeight = 400;
 
-    jest.advanceTimersByTime(3000);
-    changeImage();
-    expect(carouselImage.src).toContain("image3.jpg");
-
-    jest.advanceTimersByTime(3000);
-    changeImage();
-    expect(carouselImage.src).toContain("image1.jpg");
-    
-    jest.useRealTimers();
+    window.dispatchEvent(new Event("scroll"));
+    expect(progressBar.style.width).toBe("50%");
 });

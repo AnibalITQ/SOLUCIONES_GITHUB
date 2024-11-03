@@ -1,0 +1,155 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+    branches: [ develop ]
+  push:
+    branches: [ develop ]
+jobs:
+  # Job para Equipo 1
+  equipo1:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo1')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 1
+        run: npx jest __tests__/script_equipo1.test.js
+
+  # Job para Equipo 2
+  equipo2:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo2')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 2
+        run: npx jest __tests__/script_equipo2.test.js
+
+  # Job para Equipo 3
+  equipo3:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo3')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 3
+        run: npx jest __tests__/script_equipo3.test.js
+
+  # Job para Equipo 4
+  equipo4:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo4')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 4
+        run: npx jest __tests__/script_equipo4.test.js
+
+  # Job para Equipo 5
+  equipo5:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo5')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 5
+        run: npx jest __tests__/script_equipo5.test.js
+
+  # Job para Deploy en GitHub Pages (opcional, solo después de que se apruebe el merge)
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.DEP_TOKEN }}
+          branch: gh-pages
+          folder: ./
