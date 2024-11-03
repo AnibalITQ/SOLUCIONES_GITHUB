@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
       - name: Run ESLint
         run: npm run lint
 
@@ -42,6 +45,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
 
       - name: Run ESLint
         run: npm run lint
@@ -65,6 +71,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+
       - name: Run ESLint
         run: npm run lint
 
@@ -86,6 +95,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
 
       - name: Run ESLint
         run: npm run lint
@@ -109,6 +121,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install jest-environment-jsdom
+        run: npm install --save-dev jest-environment-jsdom
+        
       - name: Run ESLint
         run: npm run lint
 
