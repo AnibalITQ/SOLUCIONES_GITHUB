@@ -1,9 +1,17 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <input id="inputEquipo1" />
     <div id="charCount"></div>
 `;
 
-const { inputEquipo1, charCount } = require("./script_equipo1");
+// Import script after setting up the DOM
+require("../script_equipo1");
+
+const inputEquipo1 = document.getElementById("inputEquipo1");
+const charCount = document.getElementById("charCount");
 
 test("Character count updates on input", () => {
     inputEquipo1.value = "Hola";

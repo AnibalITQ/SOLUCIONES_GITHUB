@@ -1,8 +1,12 @@
+/**
+ * @jest-environment jsdom
+ */
+
 document.body.innerHTML = `
     <div id="progressBar" style="width: 0%;"></div>
 `;
 
-const { progressBar } = require("./script_equipo5");
+const { progressBar } = require("../script_equipo5");
 
 test("Progress bar width changes on scroll", () => {
     document.documentElement.scrollTop = 50;
