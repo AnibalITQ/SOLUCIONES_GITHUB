@@ -25,7 +25,7 @@ jobs:
         run: npm run lint
 
       - name: Run Jest for Equipo 1
-        run: npx jest __tests__/script_equipo1.js
+        run: npx jest __tests__/script_equipo1.test.js
 
   # Job para Equipo 2
   equipo2:
