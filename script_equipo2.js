@@ -4,5 +4,4 @@ textEquipo2.addEventListener("dblclick", () => {
     textEquipo2.textContent = textEquipo2.textContent.toUpperCase();
 });
 
-//trying to force wf
-//second force
+module.exports = {textEquipo2}
