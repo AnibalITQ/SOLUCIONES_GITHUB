@@ -1,0 +1,16 @@
+{
+  "name": "soluciones_github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script_eqipo_3.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.14.0",
+    "jest": "^29.7.0"
+  }
+}
