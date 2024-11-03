@@ -4,7 +4,8 @@
   "description": "",
   "main": "script_eqipo_3.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
