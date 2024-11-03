@@ -4,5 +4,3 @@ const charCount = document.getElementById("charCount");
 inputEquipo1.addEventListener("input", () => {
     charCount.textContent = `${inputEquipo1.value.length} caracteres`;
 });
-
-//forzando workflow
