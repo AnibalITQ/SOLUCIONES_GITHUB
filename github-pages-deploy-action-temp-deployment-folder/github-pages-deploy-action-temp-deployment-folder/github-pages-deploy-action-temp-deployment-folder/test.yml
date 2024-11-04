@@ -1,0 +1,141 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  # Job para Equipo 1
+  equipo1:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo1')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 1
+        run: npx jest tests/test_equipo1.js
+
+  # Job para Equipo 2
+  equipo2:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo2')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 2
+        run: npx jest tests/test_equipo2.js
+
+  # Job para Equipo 3
+  equipo3:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo3')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 3
+        run: npx jest tests/test_equipo3.js
+
+  # Job para Equipo 4
+  equipo4:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo4')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 4
+        run: npx jest tests/test_equipo4.js
+
+  # Job para Equipo 5
+  equipo5:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.head.ref, 'equipo5')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Jest for Equipo 5
+        run: npx jest tests/test_equipo5.js
+
+  # Job para Deploy en GitHub Pages (opcional, solo después de que se apruebe el merge)
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
