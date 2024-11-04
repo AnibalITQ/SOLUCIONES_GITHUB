@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-document.body.innerHTML = `<img id="carouselImage" src="${carouselImages[0]}" />`;
 const { carouselImages, carouselImage, changeImage } = require('../script_equipo3.js');
+document.body.innerHTML = `<img id="carouselImage" src="${carouselImages[0]}" />`;
 
     test('debería cambiar a la siguiente imagen en el arreglo', () => {
     
