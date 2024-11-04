@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const { carouselImages, carouselImage, changeImage } = require('../script_equipo3.js');
 
 describe('Carousel Image Changer', () => {
