@@ -1,12 +1,14 @@
-const progressBar = document.getElementById("progressBar");
+// Select the counter display and the button from the DOM
+const counterDisplay = document.getElementById("counter");
+const clickButton = document.getElementById("clickButton");
 
-// Attach progressBar to window for testing purposes
-window.progressBar = progressBar;
-window.addEventListener("scroll", () => {
-    const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const progress = (scrollPosition / scrollHeight) * 100;
-    progressBar.style.width = `${progress}%`;
+// Initialize the counter
+let count = 0;
+
+// Add a click event listener to the button
+clickButton.addEventListener("click", () => {
+    // Increment the counter
+    count++;
+    // Update the counter display
+    counterDisplay.textContent = count;
 });
-
-module.exports = { progressBar };

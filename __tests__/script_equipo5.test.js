@@ -2,23 +2,35 @@
  * @jest-environment jsdom
  */
 
-require("../script_equipo5");  // Ensure the script runs and attaches the event listener
-
+// Set up the initial HTML structure
 document.body.innerHTML = `
-    <div id="progressBarContainer" style="width: 100%; background-color: #e0e0e0;">
-        <div id="progressBar" style="width: 0%; height: 20px; background-color: #76c7c0;"></div>
-    </div>
+    <h1>Click Counter</h1>
+    <p>Number of clicks: <span id="counter">0</span></p>
+    <button id="clickButton">Click Me!</button>
 `;
 
-test("Progress bar width changes on scroll", () => {
-    // Set up scroll properties
-    document.documentElement.scrollTop = 250;
-    document.documentElement.scrollHeight = 500;
-    document.documentElement.clientHeight = 250;
+// Import the JavaScript file that contains the counter logic
+require("../script_equipo5.js");
 
-    // Dispatch the scroll event
-    window.dispatchEvent(new Event("scroll"));
+describe("Click Counter", () => {
+    test("increments counter on button click", () => {
+        // Get the button and counter display from the DOM
+        const clickButton = document.getElementById("clickButton");
+        const counterDisplay = document.getElementById("counter");
 
-    // Access the global progressBar set up by the script
-    expect(window.progressBar.style.width).toBe("50%");
+        // Check initial counter value
+        expect(counterDisplay.textContent).toBe("0");
+
+        // Simulate a button click
+        clickButton.click();
+
+        // Check counter value after 1 click
+        expect(counterDisplay.textContent).toBe("1");
+
+        // Simulate another button click
+        clickButton.click();
+
+        // Check counter value after 2 clicks
+        expect(counterDisplay.textContent).toBe("2");
+    });
 });
